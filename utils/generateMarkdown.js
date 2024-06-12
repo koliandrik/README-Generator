@@ -38,34 +38,66 @@ function renderLicenseSection(license) {
     } else {
         return `## License
       ${renderLicenseBadge(license)}
+
       This project is licensed under the ${renderLicenseLink(license)} license.`;
     }
 }
 // TODO: Create a function to generate markdown for README
 
 function generateMarkdown(data) {
-  return `# ${data.title} 
-  ${renderLicenseBadge(data.license)}
-  ## Description
-  ${data.description}
-  ## Table of Contents
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Contribution](#contribution)
-  - [Tests](#tests)
-  - [License](#license)
-  - [Questions](#questions)
-  ## Installation
-  ${data.installation}
-  ## Usage
-  ${data.usage}
-  ## Contribution
-  ${data.contribution}
-  ## Tests
-  ${data.test}
-  ${renderLicenseSection(data.license)}
-  ## Questions
-  If you have any questions, please reach out to me at [${data.email}](mailto:${data.email}) or visit my [GitHub Profile]() at [${data.github}]()`;
+    return `
+    
+    # ${data.title}
+
+    ${renderLicenseBadge(data.license)}
+
+    ## Description
+
+    \`\`\`
+    ${data.description.replace(/\.\s/g, '.\n')}
+    \`\`\`
+
+    ## Table of Contents
+    
+    \`\`\`
+    - [Installation](#installation)
+    - [Usage](#usage)
+    - [Contribution](#contribution)
+    - [Test](#test)
+    - [License](#license)
+    - [Questions](#questions)
+    \`\`\`
+
+    ## Installation
+
+    \`\`\`
+    ${data.installation.replace(/\.\s/g, '.\n')}
+    \`\`\`
+
+    ## Usage
+
+    \`\`\`
+    ${data.usage.replace(/\.\s/g, '.\n')}
+    \`\`\`
+
+    ## Contribution
+
+    \`\`\`
+    ${data.contribution.replace(/\.\s/g, '.\n')}
+    \`\`\`
+
+    ## Test
+
+    \`\`\`
+    ${data.test.replace(/\.\s/g, '.\n')}
+    \`\`\`
+
+    ${renderLicenseSection(data.license)}
+
+    ## Questions
+
+    If you have any questions, please contact me at [${data.email}](mailto:${data.email}) or visit my [GitHub](https://github.com/koliandrik) profile.
+    `;
 }
 
 module.exports = generateMarkdown;

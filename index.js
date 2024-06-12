@@ -3,6 +3,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 const generateMarkdown = require('./utils/generateMarkdown');
+const colors = require('colors');
 
 // TODO: Create an array of questions for user input
 const questions = ["What is the title of your project?", "Please provide a description of your project.", "What are the installation instructions for your project?", "What is the usage information for your project?", "What are the contribution guidelines for your project?", "What are the test instructions for your project?", "What license would you like to use for your project?", "What is your GitHub username?", "What is your email address?"];
@@ -10,7 +11,7 @@ const questions = ["What is the title of your project?", "Please provide a descr
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) => {
-        err ? console.error(err) : console.log("File created successfully!".green);
+        err ? console.error(err) : console.log(colors.green("File created successfully!"));
     });
 }
 
