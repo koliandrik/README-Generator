@@ -88,11 +88,11 @@ function generateMarkdown(data) {
   ${renderLicenseSection(data.license)}
   ${renderLicenseLink(data.license)}
   ## Contributing
-  ${data.contributing}
+    ${data.contribution}
   ## Tests
-  ${data.tests}
+    ${data.test}
   ## Questions
-  If you have any questions, you can reach me at [${data.email}](mailto:${data.email}) or on GitHub at [${data.github}](https://github.com/koliandrik)
+  If you have any questions, you can reach me at [${data.email}](mailto:${data.email}) or on GitHub [here](https://github.com/${data.username})
 `;}
 
 // Export the generateMarkdown function
